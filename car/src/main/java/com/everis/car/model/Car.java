@@ -4,11 +4,14 @@ import java.sql.Timestamp;
 import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
+
+import com.google.gson.annotations.SerializedName;
 @Entity
 public class Car {
-	@GeneratedValue
+	@Id @GeneratedValue
 	private UUID id;
 	@NotNull
 	private String brand;
@@ -16,9 +19,9 @@ public class Car {
 	private Timestamp registration;
 	@NotNull
 	private String country;
-	@NotNull @Transient
+	@NotNull
 	private Timestamp created_at;
-	@NotNull @Transient
+	@NotNull
 	private Timestamp last_update;
 	public UUID getId() {
 		return id;
